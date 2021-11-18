@@ -1,5 +1,5 @@
 <template>
-  <div>{{greet}} {{ name }}</div>
+  <!-- <div>{{greet}} {{ name }}</div>
   <div v-text="channel"></div>
 
   <div v-html="purpose"></div>
@@ -30,9 +30,51 @@
   <h2 v-bind:style="headerStyleObject">Style Obj</h2>
 
   <div v-bind:style="[baseStyleObject, successStyleObject]">Success style</div>
-  <div v-bind:style="[baseStyleObject, dangerStyleObject]">Danger style</div>
-
+  <div v-bind:style="[baseStyleObject, dangerStyleObject]">Danger style</div> -->
   <!-- Note: Can remove v-bind, :class :style.. work as well -->
+
+  <!-- * Conditional rendering -->
+  <!-- <h2 v-if="num === 0">The number is zero</h2>
+  <h2 v-else-if="num < 0">The number is negative</h2>
+  <h2 v-else-if="num > 0">The number is postitive</h2>
+  <h2 v-else>Not a number</h2>
+
+  <div v-if="display">
+    <h2>Minh Thong</h2>
+    <h2>Hana</h2>
+    <h2>Vue</h2>
+  </div> -->
+
+  <!-- <template v-if="display">
+    <h2>Minh Thong</h2>
+    <h2>Hana</h2>
+    <h2>Vue</h2>
+  </template> -->
+  <!-- use template instead dev for prevent element that no need to the DOM -->
+<!-- 
+  <h2 v-show="showElement">Using v-show</h2>
+  <h2 v-if="showElement">Using v-show</h2> -->
+
+  <!-- List rendering -->
+  <!-- <h2 v-for="(name, index) in names" :key="name">{{ index }} {{name}}</h2>
+  <h2 v-for="name in fullNames" :key="name.firstName">{{ name.firstName }} {{name.lastName}}</h2>
+
+  <div v-for="actor in actors" :key="actor.name">
+    <h2>{{ actor.name }}</h2>
+    <h3 v-for="movie in actor.movies" :key="movie">{{ movie }}</h3>
+  </div>
+
+  <h2 v-for="(value, key, index) in myInfor" :key="value">{{index}} {{ key }} {{ value }}</h2>
+
+  <template v-for="name in names" :key="name">
+    <h2>{{ name }}</h2>
+    <hr>
+  </template> -->
+
+  <!-- Conditional rendering list -->
+  <template v-for="name in names" :key="name">
+    <h2 v-if="name === 'thong'">{{ name }}</h2>
+  </template>
 </template>
 
 <script>
@@ -71,6 +113,34 @@ export default {
         color: 'darkred',
         backgroundColor: 'red',
         border: '1px solid green'
+      },
+
+      // * conditional rendering
+      num: 'Hi',
+      display: true,
+      showElement: false,
+
+      // * list rendering
+      names: ['thong', 'hana', 'phat'],
+      fullNames: [
+        { firstName: 'minh', lastName: 'thong'},
+        { firstName: 'quynh', lastName: 'thu'},
+        { firstName: 'minh', lastName: 'phat'},
+      ],
+      actors: [
+        {
+          name: 'Bale',
+          movies: ['Batman', 'Mavel']
+        },
+        {
+          name: 'Ronaldo',
+          movies: ['RM', 'MU']
+        },
+      ],
+      myInfor: {
+        name: 'thong',
+        channel: 'R316',
+        course: 'Vue 3'
       }
     }
   }
