@@ -1,77 +1,11 @@
 <template>
-  <form @submit.prevent="submitForm">
     <div>
-      <pre>
-        {{ JSON.stringify(formValues, null, 2) }}
-      </pre>
+      <h2>FullName - {{firstName}} {{lastName}}</h2>
+      <h2> Computed FullName - {{ fullName }}</h2>
+
+      <button @click="items.push({id: 4, title: 'Keyboard', price: 50})">Add item</button>
+      <h2>Total - {{ total }}</h2>
     </div>
-
-    <div>
-      <label v-once for="name">Name</label>
-      <input type="text" id='name' v-model.trim.lazy="formValues.name">
-    </div>
-
-    <div>
-      <label for="profile">Profile Summary</label>
-      <textarea type="text" id='profile' v-model="formValues.profileSummary"></textarea>
-    </div>
-
-    <div>
-      <label for="country">Country</label>
-      <select id="country" v-model="formValues.country">
-        <option value="">Select a country</option>
-        <option value="india">India</option>
-        <option value="vietnam">Viet Nam</option>
-        <option value="singapore">Singapore</option>
-      </select>
-    </div>
-
-    <div>
-      <label for="job-location">Job Location</label>
-      <select id="job-location" multiple v-model="formValues.jobLocations">
-        <option value="india">India</option>
-        <option value="vietnam">Viet Nam</option>
-        <option value="singapore">Singapore</option>
-      </select>
-    </div>
-
-     <div>
-      <input type="checkbox" id='remoteWork' v-model="formValues.remoteWork">
-      <label for="remoteWork">Open to remote work</label>
-    </div>
-
-    <div>
-      <label for="">Skill set</label>
-      <input type="checkbox" id="html" value="html" v-model="formValues.skillSet">
-      <label for="html">HTML</label>
-      <input type="checkbox" id="css" value="css" v-model="formValues.skillSet">
-      <label for="css">CSS</label>
-      <input type="checkbox" id="javascript" value="javascript" v-model="formValues.skillSet">
-      <label for="javascript">Javascript</label>
-    </div>
-
-    <div>
-      <label for="">Years Of Exp</label>
-
-      <input type="radio" id="0-2" value="0-2" v-model="formValues.yearOfExp">
-      <label for="0-2">0-2</label>
-
-      <input type="radio" id="3-5" value="3-5" v-model="formValues.yearOfExp">
-      <label for="3-5">3-5</label>
-
-      <input type="radio" id="6-10" value="6-10" v-model="formValues.yearOfExp">
-      <label for="6-10">6-10</label>
-    </div>
-
-    <div>
-      <label for="age">age</label>
-      <input type="number" id='age' v-model.number="formValues.age">
-    </div>
-
-    <div>
-      <button>Submit</button>
-    </div>
-  </form> 
 </template>
 
 <script>
@@ -80,22 +14,36 @@ export default {
   name: 'App',
   data() {
     return {
-      formValues: {
-        name: '',
-        profileSummary: '',
-        country: '',
-        jobLocations: [],
-        remoteWork: false,
-        skillSet: [],
-        yearOfExp: '',
-        age: null
-      }
+     firstName: 'Minh',
+     lastName: 'Thong',
+     items: [
+       {
+         id: 1,
+         title: 'TV',
+         price: 100
+       },
+       {
+         id: 2,
+         title: 'DV',
+         price: 200
+       },
+       {
+         id: 3,
+         title: 'SDTV',
+         price: 400
+       },
+     ]
     }
   },
   methods: { 
-    submitForm () {
-      // e.preventDefault() // * use  @submit.prevent solution for clean code instead old.
-      console.log(this.formValues)
+   
+  },
+  computed: {
+    fullName () {
+      return `${this.firstName} ${this.lastName}`
+    },
+    total () {
+      return this.items.reduce((total, curr) => (total = total + curr.price), 0)
     }
   }
 }
