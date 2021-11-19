@@ -2,6 +2,7 @@
     <div>
       <h2>FullName - {{firstName}} {{lastName}}</h2>
       <h2> Computed FullName - {{ fullName }}</h2>
+      <button @click="changeFullName">Change Full Name</button>
 
       <button @click="items.push({id: 4, title: 'Keyboard', price: 50})">Add item</button>
       <h2>Computed Total - {{ total }}</h2>
@@ -49,11 +50,26 @@ export default {
     getTotal() {
       console.log('getTotal')
       return this.items.reduce((total, curr) => (total = total + curr.price), 0)
+    },
+    changeFullName() {
+      this.fullName = 'Ronaldo'
     }
   },
   computed: {
-    fullName () {
-      return `${this.firstName} ${this.lastName}`
+    // fullName () {
+    //   return `${this.firstName} ${this.lastName}`
+    // },
+    fullName: {
+      get () {
+        console.log('get full name')
+        return `${this.firstName} ${this.lastName}`
+      },
+      set (value) {
+        console.log('set full name')
+        const names = value.split(' ')
+        this.firstName = names[0]
+        this.lastName = names[1]
+      }
     },
     total () {
       console.log('computed')
