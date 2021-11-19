@@ -1,21 +1,21 @@
 <template>
     <div>
-      <h2>FullName - {{firstName}} {{lastName}}</h2>
-      <h2> Computed FullName - {{ fullName }}</h2>
-      <button @click="changeFullName">Change Full Name</button>
+      <h2>Volume Tracker</h2>
+      <h3>Current Volume - {{ volume }}</h3>
 
-      <button @click="items.push({id: 4, title: 'Keyboard', price: 50})">Add item</button>
-      <h2>Computed Total - {{ total }}</h2>
-      <h2>Methods Total - {{ getTotal() }}</h2>
-      <!-- What is different betweent Computed and Methods? Res: Computed catch result for next render to improve performce, Methods is not., type input and check clg for test behavior -->
+      <div>
+        <button @click="volume += 2">Inc</button>
+        <button @click="volume -= 2">Dec</button>
+      </div>
 
-      <input type="text" v-model="country" name="" id="">
+      <input type="text" v-model="movie" id="">
+      <input type="text" v-model="movieInfo.title" id="">
+      <input type="text" v-model="movieInfo.actor" id="">
 
-      <template v-for="item in items" :key="item.id">
-        <h2 v-if="item.price > 200">{{item.title}}  {{item.price}}</h2>
-      </template>
-
-      <h2 v-for="item in expensiveItems" :key="item.id">{{item.title}}  {{item.price}}</h2>
+      <div>
+        <button @click="movieList.push('Peace and Love')">Add movie</button>
+        <button @click="movieList = movieList.concat(['War'])">Add movie with other method</button> <!-- Can use this to trigger related func on watch config and no need to add deep:true -->
+      </div>
     </div>
 </template>
 
@@ -24,59 +24,45 @@ export default {
   name: 'App',
   data() {
     return {
-     firstName: 'Minh',
-     lastName: 'Thong',
-     items: [
-       {
-         id: 1,
-         title: 'TV',
-         price: 100
-       },
-       {
-         id: 2,
-         title: 'DV',
-         price: 200
-       },
-       {
-         id: 3,
-         title: 'SDTV',
-         price: 400
-       },
-     ],
-     country: ''
+      volume: 0,
+      movie: 'first render',
+      movieInfo: {
+        title: '',
+        actor: ''
+      },
+      movieList: ['316', 'TT1000']
     }
   },
   methods: { 
-    getTotal() {
-      console.log('getTotal')
-      return this.items.reduce((total, curr) => (total = total + curr.price), 0)
-    },
-    changeFullName() {
-      this.fullName = 'Ronaldo'
-    }
+    
   },
   computed: {
-    // fullName () {
-    //   return `${this.firstName} ${this.lastName}`
-    // },
-    fullName: {
-      get () {
-        console.log('get full name')
-        return `${this.firstName} ${this.lastName}`
-      },
-      set (value) {
-        console.log('set full name')
-        const names = value.split(' ')
-        this.firstName = names[0]
-        this.lastName = names[1]
+
+  },
+  watch: {
+    volume(newValue, oldValue) {
+      // console.log(oldValue)
+      if (newValue > oldValue && newValue === 16) {
+        alert('Alert something')
       }
     },
-    total () {
-      console.log('computed')
-      return this.items.reduce((total, curr) => (total = total + curr.price), 0)
+    movie: {
+      handler(newValue) {
+      console.log(`Call api with movie name ${newValue}`)
+      },
+      immediate: true // for call func handler at first render
     },
-    expensiveItems () {
-      return this.items.filter(item => item.price > 200)
+    movieInfo: {
+      handler(newValue) {
+        console.log(`Call api with movie title ${newValue.title} and actor ${newValue.actor}`)
+      },
+      deep: true // with obj, config this to use handler func, if not func will not call any time.
+    },
+    movieList: {
+      handler(newValue) {
+        console.log(`update list ${newValue}`)  
+      },
+      deep: true  // with arr, config this to use handler func, if not func will not call any time || no need if use with btn two on template
     }
   }
 }
