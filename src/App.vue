@@ -1,5 +1,5 @@
 <template>
-  <form @submit="submitForm">
+  <form @submit.prevent="submitForm">
     <div>
       <pre>
         {{ JSON.stringify(formValues, null, 2) }}
@@ -7,8 +7,8 @@
     </div>
 
     <div>
-      <label for="name">Name</label>
-      <input type="text" id='name' v-model="formValues.name">
+      <label v-once for="name">Name</label>
+      <input type="text" id='name' v-model.trim.lazy="formValues.name">
     </div>
 
     <div>
@@ -64,6 +64,11 @@
     </div>
 
     <div>
+      <label for="age">age</label>
+      <input type="number" id='age' v-model.number="formValues.age">
+    </div>
+
+    <div>
       <button>Submit</button>
     </div>
   </form> 
@@ -82,13 +87,14 @@ export default {
         jobLocations: [],
         remoteWork: false,
         skillSet: [],
-        yearOfExp: ''
+        yearOfExp: '',
+        age: null
       }
     }
   },
   methods: { 
-    submitForm (e) {
-      e.preventDefault()
+    submitForm () {
+      // e.preventDefault() // * use  @submit.prevent solution for clean code instead old.
       console.log(this.formValues)
     }
   }
