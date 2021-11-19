@@ -1,5 +1,5 @@
 <template>
-  <!-- <div>{{greet}} {{ name }}</div>
+  <div>{{greet}} {{ name }}</div>
   <div v-text="channel"></div>
 
   <div v-html="purpose"></div>
@@ -30,11 +30,11 @@
   <h2 v-bind:style="headerStyleObject">Style Obj</h2>
 
   <div v-bind:style="[baseStyleObject, successStyleObject]">Success style</div>
-  <div v-bind:style="[baseStyleObject, dangerStyleObject]">Danger style</div> -->
+  <div v-bind:style="[baseStyleObject, dangerStyleObject]">Danger style</div>
   <!-- Note: Can remove v-bind, :class :style.. work as well -->
 
   <!-- * Conditional rendering -->
-  <!-- <h2 v-if="num === 0">The number is zero</h2>
+  <h2 v-if="num === 0">The number is zero</h2>
   <h2 v-else-if="num < 0">The number is negative</h2>
   <h2 v-else-if="num > 0">The number is postitive</h2>
   <h2 v-else>Not a number</h2>
@@ -43,20 +43,20 @@
     <h2>Minh Thong</h2>
     <h2>Hana</h2>
     <h2>Vue</h2>
-  </div> -->
+  </div>
 
-  <!-- <template v-if="display">
+  <template v-if="display">
     <h2>Minh Thong</h2>
     <h2>Hana</h2>
     <h2>Vue</h2>
-  </template> -->
+  </template>
   <!-- use template instead dev for prevent element that no need to the DOM -->
-<!-- 
+
   <h2 v-show="showElement">Using v-show</h2>
-  <h2 v-if="showElement">Using v-show</h2> -->
+  <h2 v-if="showElement">Using v-show</h2>
 
   <!-- List rendering -->
-  <!-- <h2 v-for="(name, index) in names" :key="name">{{ index }} {{name}}</h2>
+  <h2 v-for="(name, index) in names" :key="name">{{ index }} {{name}}</h2>
   <h2 v-for="name in fullNames" :key="name.firstName">{{ name.firstName }} {{name.lastName}}</h2>
 
   <div v-for="actor in actors" :key="actor.name">
@@ -69,7 +69,7 @@
   <template v-for="name in names" :key="name">
     <h2>{{ name }}</h2>
     <hr>
-  </template> -->
+  </template>
 
   <!-- Conditional rendering list -->
   <template v-for="name in names" :key="name">
