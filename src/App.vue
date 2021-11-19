@@ -1,68 +1,22 @@
 <template>
-    <div>
-      <h2>Volume Tracker</h2>
-      <h3>Current Volume - {{ volume }}</h3>
-
-      <div>
-        <button @click="volume += 2">Inc</button>
-        <button @click="volume -= 2">Dec</button>
-      </div>
-
-      <input type="text" v-model="movie" id="">
-      <input type="text" v-model="movieInfo.title" id="">
-      <input type="text" v-model="movieInfo.actor" id="">
-
-      <div>
-        <button @click="movieList.push('Peace and Love')">Add movie</button>
-        <button @click="movieList = movieList.concat(['War'])">Add movie with other method</button> <!-- Can use this to trigger related func on watch config and no need to add deep:true -->
-      </div>
-    </div>
+  <Greet name="thong" heroName='minh'/>
+  <Greet name="hana" heroName='quynh'/>
+  <Greet name="phat" heroName='vo'/>
+  <Greet :name="name" :heroName='channel'/>
 </template>
 
 <script>
+import Greet from './components/Greet.vue'
+
 export default {
   name: 'App',
+  components: {
+    Greet
+  },
   data() {
     return {
-      volume: 0,
-      movie: 'first render',
-      movieInfo: {
-        title: '',
-        actor: ''
-      },
-      movieList: ['316', 'TT1000']
-    }
-  },
-  methods: { 
-    
-  },
-  computed: {
-
-  },
-  watch: {
-    volume(newValue, oldValue) {
-      // console.log(oldValue)
-      if (newValue > oldValue && newValue === 16) {
-        alert('Alert something')
-      }
-    },
-    movie: {
-      handler(newValue) {
-      console.log(`Call api with movie name ${newValue}`)
-      },
-      immediate: true // for call func handler at first render
-    },
-    movieInfo: {
-      handler(newValue) {
-        console.log(`Call api with movie title ${newValue.title} and actor ${newValue.actor}`)
-      },
-      deep: true // with obj, config this to use handler func, if not func will not call any time.
-    },
-    movieList: {
-      handler(newValue) {
-        console.log(`update list ${newValue}`)  
-      },
-      deep: true  // with arr, config this to use handler func, if not func will not call any time || no need if use with btn two on template
+      name: 'minh',
+      channel: 'R316'
     }
   }
 }
