@@ -1,17 +1,22 @@
 <template>
-  <Greet name="thong" heroName='minh'/>
-  <Greet name="hana" heroName='quynh'/>
-  <Greet name="phat" heroName='vo'/>
-  <Greet :name="name" :heroName='channel'/>
+  <div>
+    <!-- <Greet name="thong" heroName='minh'/>
+    <Greet name="hana" heroName='quynh'/>
+    <Greet name="phat" heroName='vo'/> -->
+
+    <Article id="my-article" title="Article title" :likes="50" :isPublic="true"/> 
+  </div> <!-- Just use when component has a wraper div -->
 </template>
 
 <script>
-import Greet from './components/Greet.vue'
+// import Greet from './components/Greet.vue'
+import Article from './components/Article.vue'
 
 export default {
   name: 'App',
   components: {
-    Greet
+    // Greet,
+    Article
   },
   data() {
     return {
