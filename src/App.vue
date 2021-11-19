@@ -83,6 +83,7 @@ export default {
   name: 'App',
   data() {
     return {
+      // * variables
       greet: 'Hello',
       name: 'Hana',
       channel: 'R316',
@@ -95,6 +96,8 @@ export default {
       isSoldout: true,
       highlightColor: 'orange',
       headerSize: 50,
+
+       // * style
       headerStyleObject: {
         color: 'orange',
         fontSize: '50px',
@@ -122,11 +125,13 @@ export default {
 
       // * list rendering
       names: ['thong', 'hana', 'phat'],
+
       fullNames: [
         { firstName: 'minh', lastName: 'thong'},
         { firstName: 'quynh', lastName: 'thu'},
         { firstName: 'minh', lastName: 'phat'},
       ],
+
       actors: [
         {
           name: 'Bale',
@@ -137,6 +142,7 @@ export default {
           movies: ['RM', 'MU']
         },
       ],
+      
       myInfor: {
         name: 'thong',
         channel: 'R316',
