@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="card">
-            <!-- <slot>Default content</slot> -->
             <div id="card-header">
                 <slot name="header"></slot>
             </div>
@@ -11,8 +10,6 @@
             <div id="card-footer">
                 <slot name="footer"></slot>
             </div>
-
-            <slot name="test"></slot>
         </div>
     </div>
 </template>
