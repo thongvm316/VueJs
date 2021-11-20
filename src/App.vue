@@ -1,19 +1,38 @@
 <template>
   <div>
-    <Input v-model="name"/>
+    <!-- <Card contents='Card content 1'/>
+    <Card contents='Card content 2'/> -->
+    <!-- <Card/>
+    <Card>Card contents</Card>
+    <Card><h2>Card contents</h2></Card>
+    <Card><img src="https://picsum.photos/200" alt=""></Card> -->
+
+    <Card>
+      <template v-slot:header>
+          <h3>Header</h3>
+      </template>
+
+      <template v-slot:default>
+          <img src="https://picsum.photos/200" alt="">
+      </template>
+
+      <template v-slot:footer>
+        <button>View Details</button>
+      </template>
+    </Card>
   </div> 
 </template>
 
 <script>
-  import Input from './components/Input.vue'
+  import Card from './components/Card.vue'
   export default {
     name: 'App',
     components: {
-     Input
+     Card
     },
     data() {
       return {
-        name: 'thong', 
+       
       }
     },
   }
