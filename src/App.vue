@@ -1,43 +1,22 @@
 <template>
   <div>
-    <!-- <h4>App Component Text</h4>
-    <ChildStyle>
-      ChildStyle components text
-    </ChildStyle> -->
-
-    <button @click="activeTab = 'TabA'">Tab A</button>
-    <button @click="activeTab = 'TabB'">Tab B</button>
-    <button @click="activeTab = 'TabC'">Tab C</button>
-
-    <!-- <TabA v-if="activeTab === 'TabA'"/>
-    <TabB v-if="activeTab === 'TabB'"/>
-    <TabC v-if="activeTab === 'TabC'"/> -->
-
-    <keep-alive>
-      <component :is="activeTab"/>
-    </keep-alive>  <!-- Can use dynamic component with this syntax intead above for clean code -->
-
-
-
+   <teleport to="#portal-root">
+      <Portal/>
+   </teleport>
+   <!-- render out into other id in index.html instead #app -->
   </div> 
 </template>
 
 <script>
-  // import ChildStyle from './components/ChildStyle.vue'
-  import TabA from './components/TabA.vue'
-  import TabB from './components/TabB.vue'
-  import TabC from './components/TabC.vue'
+  import Portal from './components/Portal.vue'
   export default {
     name: 'App',
     components: {
-      // ChildStyle
-      TabA,
-      TabB,
-      TabC,
+     Portal
     },
     data() {
       return { 
-       activeTab: 'TabA'
+       
       }
     },
   }

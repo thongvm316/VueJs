@@ -1,12 +1,12 @@
 <template>
     <div>
-        TabA Contents
+        <h2>Portal Component</h2>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'TabA'
+        name: 'Portal'
     }
 </script>
 
