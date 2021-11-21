@@ -1,18 +1,19 @@
 <template>
   <div>
-   <teleport to="#portal-root">
-      <Portal/>
-   </teleport>
-   <!-- render out into other id in index.html instead #app -->
+   <PostList/>
+   <CreatePost/>
   </div> 
 </template>
 
 <script>
-  import Portal from './components/Portal.vue'
+  import PostList from './components/PostList.vue'
+  import CreatePost from './components/CreatePost.vue'
+
   export default {
     name: 'App',
     components: {
-     Portal
+    PostList,
+    CreatePost
     },
     data() {
       return { 
