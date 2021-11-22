@@ -1,19 +1,19 @@
 <template>
   <div> 
-    <Parent/>
-    <PostLists/>
+    <ClickCounter/>
+    <HoverCounter/>
   </div> 
 </template>
 
 <script>
-  import Parent from './components/Parent.vue';
-  import PostLists from './components/PostLists.vue';
+  import ClickCounter from './components/ClickCounter.vue';
+  import HoverCounter from './components/HoverCounter.vue';
 
   export default {
     name: 'App',
     components: {
-      Parent,
-      PostLists
+     ClickCounter,
+     HoverCounter
     },
     data() {
       return { 
