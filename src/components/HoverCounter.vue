@@ -5,18 +5,17 @@
 </template>
 
 <script>
+    import CounterMixin from '../mixins/counter.js';
+
+
     export default {
         name: 'HoverCounter',
         data() {
             return {
-                count: 0
+                count: 100 // can override this instead using count in counter.js
             }
-        },
-        methods: {
-            incrementCount() {
-                this.count += 1
-            }
-        }
+        },    
+        mixins: [CounterMixin]
     }
 </script>
 

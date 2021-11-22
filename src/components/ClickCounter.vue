@@ -5,18 +5,11 @@
 </template>
 
 <script>
+    import CounterMixin from '../mixins/counter.js';
+
     export default {
         name: 'ClickCounter',
-        data() {
-            return {
-                count: 0
-            }
-        },
-        methods: {
-            incrementCount() {
-                this.count += 1
-            }
-        }
+        mixins: [CounterMixin]
     }
 </script>
 
