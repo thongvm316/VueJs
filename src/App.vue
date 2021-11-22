@@ -1,16 +1,19 @@
 <template>
   <div> 
     <Parent/>
+    <PostLists/>
   </div> 
 </template>
 
 <script>
   import Parent from './components/Parent.vue';
+  import PostLists from './components/PostLists.vue';
 
   export default {
     name: 'App',
     components: {
-      Parent
+      Parent,
+      PostLists
     },
     data() {
       return { 
