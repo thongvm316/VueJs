@@ -1,19 +1,16 @@
 <template>
-  <div> 
-    <ClickCounter/>
-    <HoverCounter/>
+  <div>
+    <Vmodel/> 
   </div> 
 </template>
 
 <script>
-  import ClickCounter from './components/ClickCounter.vue';
-  import HoverCounter from './components/HoverCounter.vue';
+  import Vmodel from './components/Vmodel.vue';
 
   export default {
     name: 'App',
     components: {
-     ClickCounter,
-     HoverCounter
+      Vmodel
     },
     data() {
       return { 
