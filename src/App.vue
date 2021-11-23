@@ -1,19 +1,19 @@
 <template>
   <div>
-    <Vmodel/> 
+    <Watch/> 
   </div> 
 </template>
 
 <script>
-  import Vmodel from './components/Vmodel.vue';
+  import Watch from './components/Watch.vue';
 
   export default {
     name: 'App',
     components: {
-      Vmodel
+      Watch
     },
     data() {
-      return { 
+      return {
        
       }
     },
