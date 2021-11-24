@@ -1,16 +1,16 @@
 <template>
   <div>
-    <Watch/> 
+    <Person/> 
   </div> 
 </template>
 
 <script>
-  import Watch from './components/Watch.vue';
+  import Person from './components/Person.vue';
 
   export default {
     name: 'App',
     components: {
-      Watch
+      Person
     },
     data() {
       return {
