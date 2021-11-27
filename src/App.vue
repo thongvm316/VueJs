@@ -1,32 +1,36 @@
 <template>
   <div>
-    <!-- <Card contents='Card content 1'/>
-    <Card contents='Card content 2'/>
-    <Card/>
-    <Card>Card contents</Card>
-    <Card><h2>Card contents</h2></Card> 
-    <Card><img src="https://picsum.photos/200" alt=""></Card> -->
+    <!-- <Card contents="Card content 1" />
+    <Card contents="Card content 2" />
+    <Card /> -->
+    <!-- Use with props -->
+
+    <!-- <Card>Card contents</Card>
+    <Card><h2>Card contents</h2></Card>
+    <Card><img src="https://picsum.photos/200" alt="" /></Card> -->
+    <!-- use with just slot -->
 
     <Card>
       <template v-slot:header>
-          <h3>Header</h3>
+        <h3>Header</h3>
       </template>
 
       <template v-slot:default>
-          <img src="https://picsum.photos/200" alt="">
+        <img src="https://picsum.photos/200" alt="" />
       </template>
 
       <template v-slot:footer>
         <button>View Details</button>
       </template>
     </Card>
+    <!-- use with slot name -->
 
     <NameLists>
       <template v-slot:default="slotProps">
         {{ slotProps.firstName }} {{ slotProps.lastName }}
       </template>
     </NameLists>
-    
+
     <NameLists>
       <template v-slot:default="slotProps">
         {{ slotProps.lastName }} {{ slotProps.firstName }}
@@ -38,24 +42,22 @@
         {{ slotProps.firstName }}
       </template>
     </NameLists>
-  </div> 
+  </div>
 </template>
 
 <script>
-  import Card from './components/Card.vue'
-  import NameLists from './components/NameLists.vue'
-  export default {
-    name: 'App',
-    components: {
-     Card,
-     NameLists
-    },
-    data() {
-      return {
-       
-      }
-    },
-  }
+import Card from './components/Card.vue'
+import NameLists from './components/NameLists.vue'
+export default {
+  name: 'App',
+  components: {
+    Card,
+    NameLists,
+  },
+  data() {
+    return {}
+  },
+}
 </script>
 
 <style>
@@ -66,5 +68,5 @@
   /* text-align: center; */
   color: #2c3e50;
   margin-top: 60px;
-  }
+}
 </style>
