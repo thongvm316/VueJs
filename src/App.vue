@@ -3,6 +3,7 @@
     <Nav />
     <TodoApp />
     <Parent />
+    <Messages />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import TodoApp from './components/TodoApp.vue'
 import Nav from './components/Nav.vue'
 import Parent from './components/Parent.vue'
+import Messages from './components/Messages.vue'
 
 export default {
   name: 'App',
@@ -17,6 +19,7 @@ export default {
     TodoApp,
     Nav,
     Parent,
+    Messages,
   },
 }
 </script>
