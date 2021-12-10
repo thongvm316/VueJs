@@ -27,3 +27,9 @@ describe('TodoApp.vue', () => {
     expect(wrapper.get('[data-test="todo"]').classes()).toContain('completed')
   })
 })
+
+/* 
+1. Check render todo text
+2. Check func add new todo
+3. Check func complete todo
+*/

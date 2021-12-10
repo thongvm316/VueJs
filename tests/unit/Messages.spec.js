@@ -9,7 +9,6 @@ describe('Messages.vue', () => {
       },
     })
 
-    console.log(wrapper.get('[data-test="message"]').text())
     expect(wrapper.get('[data-test="message"]').text()).toContain('Hello')
   })
 })

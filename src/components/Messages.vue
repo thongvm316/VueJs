@@ -8,8 +8,9 @@
 
 <script>
 export default {
-  props: {
-    msg: String,
+  props: ['msg'],
+  mounted() {
+    console.log(this.msg)
   },
 }
 </script>
